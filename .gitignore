@@ -1,0 +1,105 @@
+# ==========================================
+# JUNGLE GAMING - BACKEND CHALLENGE
+# NestJS | TypeScript | Bun | PostgreSQL
+# MikroORM | Docker | SQS
+# ==========================================
+
+# ------------------------------------------
+# DEPENDÊNCIAS
+# ------------------------------------------
+node_modules/
+**/node_modules/
+
+# ------------------------------------------
+# BUILD E COMPILAÇÃO
+# ------------------------------------------
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# ------------------------------------------
+# VARIÁVEIS DE AMBIENTE / SEGREDOS
+# ------------------------------------------
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Certificados e chaves privadas
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ------------------------------------------
+# LOGS
+# ------------------------------------------
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+bun-debug.log*
+
+# ------------------------------------------
+# TESTES E COBERTURA
+# ------------------------------------------
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+junit.xml
+
+# ------------------------------------------
+# CACHE E ARQUIVOS TEMPORÁRIOS
+# ------------------------------------------
+.cache/
+.tmp/
+tmp/
+temp/
+*.tmp
+*.temp
+
+# ------------------------------------------
+# VS CODE
+# ------------------------------------------
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# ------------------------------------------
+# IDEs
+# ------------------------------------------
+.idea/
+*.iml
+
+# ------------------------------------------
+# SISTEMA OPERACIONAL
+# ------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ------------------------------------------
+# DOCKER - DADOS LOCAIS
+# ------------------------------------------
+postgres_data/
+ministack_data/
+pgdata/
+*.pid
+
+# ------------------------------------------
+# BANCO DE DADOS - BACKUPS LOCAIS
+# ------------------------------------------
+*.dump
+*.backup
+*.sql.gz
+
+# ------------------------------------------
+# ARQUIVOS DE EDITORES
+# ------------------------------------------
+*.swp
+*.swo
+*~
