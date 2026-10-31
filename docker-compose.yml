@@ -1,0 +1,50 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: jungle-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: wagering
+      POSTGRES_PASSWORD: wagering_dev_password
+      POSTGRES_DB: wagering
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U wagering -d wagering"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  ministack:
+    image: ministackorg/ministack:1.5.35
+    container_name: jungle-ministack
+    restart: unless-stopped
+    environment:
+      AWS_ACCESS_KEY_ID: test
+      AWS_SECRET_ACCESS_KEY: test
+      AWS_DEFAULT_REGION: us-east-1
+      MINISTACK_REGION: us-east-1
+      AWS_ENDPOINT_URL: http://localhost:4566
+      SERVICES: sqs
+      PERSIST_STATE: "1"
+      STATE_DIR: /var/lib/ministack
+    ports:
+      - "127.0.0.1:4566:4566"
+    volumes:
+      - ministack_data:/var/lib/ministack
+      - ./infra/ministack/ready.d:/etc/localstack/init/ready.d:ro
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://localhost:4566/_ministack/ready')"
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres_data:
+  ministack_data:
