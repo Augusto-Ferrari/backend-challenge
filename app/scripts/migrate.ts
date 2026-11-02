@@ -1,5 +1,5 @@
 import { MikroORM } from '@mikro-orm/postgresql';
-import ormConfig from '../mikro-orm.config.js';
+import ormConfig from '../src/mikro-orm.config.js';
 
 type Action = 'up' | 'status' | 'down';
 

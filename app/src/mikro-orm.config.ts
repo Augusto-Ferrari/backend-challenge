@@ -9,9 +9,9 @@ import {
   WalletLedgerEntrySchema,
   InboxMessageSchema,
   OutboxMessageSchema,
-} from './src/infrastructure/persistence/records.js';
+} from './infrastructure/persistence/records.js';
 
-import { Migration20261031000000 } from './src/migrations/Migration20261031000000.js';
+import { Migration20261031000000 } from './migrations/Migration20261031000000.js';
 
 export default defineConfig({
   host: process.env.DB_HOST ?? '127.0.0.1',
