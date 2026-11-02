@@ -9,12 +9,14 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
 import ormConfig from './mikro-orm.config.js';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
+import { WalletsModule, } from './modules/wallets/wallets.module.js';
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     Module({
         imports: [
             MikroOrmModule.forRoot(ormConfig),
+            WalletsModule,
         ],
         controllers: [AppController],
         providers: [AppService],
